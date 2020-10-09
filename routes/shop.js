@@ -3,14 +3,9 @@ const path = require('path')
 
 const express = require('express');
 const router = express.Router()
+const productsController = require("../controllers/products");
 
-router.get("/", (req, res, next) => {
-    console.log("Middleware");
-    /**
-     * sendFile() Detects the correct path based on operating system.
-     */
-    res.status(200).render('shop', {pageTitle: 'Shop Page'})
-  });
+router.get("/", productsController.getProducts );
 
 
 module.exports = router
